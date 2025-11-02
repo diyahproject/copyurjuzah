@@ -31,21 +31,26 @@ const SearchDropdown: React.FC<SearchDropdownProps> = memo(({
 }) => {
   if (!isOpen) return null;
 
-  // Selalu mengarah ke bawah
-  const positionClass = 'top-full mt-3';
+  const positionClass =
+    direction === 'up'
+      ? 'bottom-full mb-3 origin-bottom'
+      : 'top-full mt-3 origin-top';
+
+  const initialYOffset = direction === 'up' ? 10 : -10;
 
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, y: direction === 'up' ? 10 : -10, scale: 0.95 }}
+        initial={{ opacity: 0, y: initialYOffset, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
+        exit={{ opacity: 0, y: initialYOffset, scale: 0.95 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
-        style={{ position: 'relative', zIndex: 9999 }}
+        className={`absolute left-0 right-0 ${positionClass}`}
+        style={{ zIndex: 9999 }}
       >
         <Card
           id={id}
-          className={`absolute left-0 right-0 ${positionClass} z-[9999] shadow-2xl border-2 border-white/20 bg-gradient-to-b from-white/98 via-white/95 to-white/92 backdrop-blur-xl rounded-2xl overflow-hidden w-full`}
+          className="z-[9999] shadow-2xl border-2 border-white/20 bg-gradient-to-b from-white/98 via-white/95 to-white/92 backdrop-blur-xl rounded-2xl overflow-hidden w-full"
           role="listbox"
           aria-label="Saran Pencarian"
         >
