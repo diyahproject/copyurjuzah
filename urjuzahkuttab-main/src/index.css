@@ -1098,7 +1098,7 @@ All colors MUST be HSL for perfect theming.
 }
 
 .hijriyah-heading {
-  color: #2a3c2d;
+  color: hsl(var(--foreground));
   letter-spacing: 0.02em;
 }
 

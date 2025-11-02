@@ -85,10 +85,10 @@ const HeroSection = () => {
 
         
         {/* Search Bar - Positioned at bottom of hero section */}
-        <div className="search-bar-container w-full max-w-[1000px] mx-auto mb-8">
+        <div className="search-bar-container relative z-[1000] w-full max-w-[1000px] mx-auto mb-8">
           {/* Search Container with enhanced backdrop */}
-          <div className="search-bar-shell relative group p-1 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-full backdrop-blur-sm hover:from-white/25 hover:via-white/15 hover:to-white/25 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 theme-transition">
-            <div className="search-bar-inner relative bg-gradient-to-r from-white/5 to-white/10 rounded-full p-0.5 group-hover:from-white/10 group-hover:to-white/15 transition-all duration-500 theme-transition">
+          <div className="search-bar-shell relative z-[1000] group p-1 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-full backdrop-blur-sm hover:from-white/25 hover:via-white/15 hover:to-white/25 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 theme-transition">
+            <div className="search-bar-inner relative z-[1000] bg-gradient-to-r from-white/5 to-white/10 rounded-full p-0.5 group-hover:from-white/10 group-hover:to-white/15 transition-all duration-500 theme-transition">
             {/* Search Icon with enhanced styling */}
             <Search className="search-bar-icon absolute left-5 top-1/2 transform -translate-y-1/2 text-primary/70 h-6 w-6 z-10 transition-colors duration-300 group-focus-within:text-primary" />
             
@@ -116,7 +116,7 @@ const HeroSection = () => {
             </Button>
             
             {/* Search Dropdown */}
-            <div className="relative">
+            <div className="relative z-[1000]">
               <SearchDropdown
                 isOpen={isOpen}
                 results={results}
